@@ -93,18 +93,22 @@
 			<input type="checkbox" class="form-check-input" id="check1" name="roles" value="Profesional de proyectos - Desarrollador">
 			<label class="form-check-label" for="check1">Option 1</label>
 		</div>
+
 		<div class="form-check">
 			<input type="checkbox" class="form-check-input" id="check2" name="roles" value="something">
 			<label class="form-check-label" for="check2">Option 2</label>
 		</div>
-		<div class="form-check">
+		<div class="form-check" id="check3" name="roles" value="something">
 			<input type="checkbox" class="form-check-input">
-			<label class="form-check-label">Option 3</label>
+			<label class="form-check-label">Option 3</label> 
 		</div>
 
 		<br>
 
-		$formulario = ControladorFormularios::ctrformulario();
+
+		<?php
+
+		$formulario = ControladorFormularios::ctrRegistro();
 
 		if($formulario == "ok"){
 
