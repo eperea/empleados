@@ -53,11 +53,11 @@
 			<ul class="nav nav-justified py-2 nav-pills">
 
 				<li class="nav-item">
-					<a class="nav-link" href="">Formulario</a>
+					<a class="nav-link" href="formulario.html">Formulario</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link active" href="">Lista</a>
+					<a class="nav-link active" href="index.html">Lista</a>
 				</li>
 
 			</ul>			
@@ -70,39 +70,20 @@
 
 	<!--LISTA EMPLEADOS -->
 
-	<div class="container-fluid bg-light">
+	<div class="container-fluid">
 
-		<div class="container">
+		<div class="container py-5">
 
-			<table class="table table-dark table-striped">
-				
-				<thead>
-					<tr>
-						<th>Firstname</th>
-						<th>Lastname</th>
-						<th>Email</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>John</td>
-						<td>Doe</td>
-						<td>john@example.com</td>
-					</tr>
-					<tr>
-						<td>Mary</td>
-						<td>Moe</td>
-						<td>mary@example.com</td>
-					</tr>
-					<tr>
-						<td>July</td>
-						<td>Dooley</td>
-						<td>july@example.com</td>
-					</tr>
-				</tbody>
 
-			</table>
+			<?php 
 
+				include "paginas/inicio.php"
+
+
+			?>
+
+
+			
 		</div>
 
 	</div>
