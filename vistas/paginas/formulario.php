@@ -92,6 +92,26 @@
 
 	<br>
 
+	$formulario = ControladorFormularios::ctrformulario();
+
+		if($formulario == "ok"){
+
+			echo '<script>
+
+				if ( window.history.replaceState ) {
+
+					window.history.replaceState( null, null, window.location.href );
+
+				}
+
+			</script>';
+
+			echo '<div class="alert alert-success">El usuario ha sido registrado</div>';
+		
+		}
+
+		?>
+
 	<button type="submit" class="btn btn-primary">Enviar</button>
 
 </form>
