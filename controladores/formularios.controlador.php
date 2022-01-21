@@ -8,11 +8,16 @@ class ControladorFormularios{
 
 	static public function ctrRegistro(){
 
-		if(isset($_POST["registroNombre"])){
+		if(isset($_POST["nombre"])){
 
-			$tabla = "registros";
+			$tabla = "empleado";
 
-			$datos = array("nombre" => $_POST["registroNombre"],
+			$datos = array("nombre" => $_POST["nombre"],
+				           "email" => $_POST["email"],
+				           "email" => $_POST["sexo"],
+				           "email" => $_POST["area"],
+				           "email" => $_POST["descripcion"],
+				           "email" => $_POST["registroEmail"],
 				           "email" => $_POST["registroEmail"],
 				           "password" => $_POST["registroPassword"]);
 
@@ -30,13 +35,28 @@ class ControladorFormularios{
 
 	static public function ctrSeleccionarRegistros($item, $valor){
 
-		$tabla = "registros";
+		$tabla = "empleado";
 
 		$respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla, $item, $valor);
 
 		return $respuesta;
 
 	}
+
+	/*=============================================
+	Seleccionar Areas
+	=============================================*/
+
+	static public function ctrSeleccionarAreas($item, $valor){
+
+		$tabla = "areas";
+
+		$respuesta = ModeloFormularios::mdlSeleccionarAreas($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
 
 	/*=============================================
 	Ingreso
@@ -129,7 +149,7 @@ class ControladorFormularios{
 
 		if(isset($_POST["eliminarRegistro"])){
 
-			$tabla = "registros";
+			$tabla = "empleado";
 			$valor = $_POST["eliminarRegistro"];
 
 			$respuesta = ModeloFormularios::mdlEliminarRegistro($tabla, $valor);
