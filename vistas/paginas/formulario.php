@@ -1,3 +1,5 @@
+<h1>Formulario Ingreso</h1>
+
 <form >
 	<div class="mb-3 mt-3">
 		<label for="email" class="form-label">Email:</label>

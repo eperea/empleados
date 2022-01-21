@@ -52,13 +52,49 @@
 
 			<ul class="nav nav-justified py-2 nav-pills">
 
+
+				<?php if (isset($_GET["pagina"])): ?>
+
+				<?php if ($_GET["pagina"] == "formulario"): ?>
+
+					<li class="nav-item">
+						<a class="nav-link active" href="index.php?pagina=formulario">Formulario</a>
+					</li>
+
+				<?php else: ?>
+
+					<li class="nav-item">
+						<a class="nav-link" href="index.php?pagina=formulario">Formulario</a>
+					</li>
+					
+				<?php endif ?>
+
+				<?php if ($_GET["pagina"] == "inicio"): ?>
+
+					<li class="nav-item">
+						<a class="nav-link active" href="index.php?pagina=inicio">Lista Empleados</a>
+					</li>
+
+				<?php else: ?>
+
+					<li class="nav-item">
+						<a class="nav-link" href="index.php?pagina=inicio">Lista Empleados</a>
+					</li>
+					
+				<?php endif ?>
+
+				
+			<?php else: ?>
+
 				<li class="nav-item">
-					<a class="nav-link" href="formulario.html">Formulario</a>
+					<a class="nav-link" href="index.php?pagina=formulario">Formulario</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link active" href="index.html">Lista</a>
+					<a class="nav-link active" href="index.php?pagina=inicio">Lista</a>
 				</li>
+
+				<?php endif ?>
 
 			</ul>			
 
@@ -77,7 +113,25 @@
 
 			<?php 
 
-				include "paginas/inicio.php"
+
+			if(isset($_GET["pagina"])){
+
+				if($_GET["pagina"] == "formulario" ||
+			       $_GET["pagina"] == "inicio"){
+
+
+						include "paginas/".$_GET["pagina"].".php";
+}
+
+
+
+			}else{
+
+				include "paginas/formulario.php";
+
+			}
+
+				
 
 
 			?>

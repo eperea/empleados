@@ -1,3 +1,6 @@
+<h1>Lista Empleados</h1>
+
+
 <table class="table table-striped">
 
 	<thead>
