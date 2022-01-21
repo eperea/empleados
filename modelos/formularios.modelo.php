@@ -12,27 +12,32 @@ class ModeloFormularios{
 
 		
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, email, password) VALUES (:nombre, :email, :password)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre, email, sexo, area, descripcion, boletin) VALUES (:nombre, :email, :sexo, :area, :descripcion, :boletin)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
+		$stmt->bindParam(":sexo", $datos["sexo"], PDO::PARAM_STR);
+		$stmt->bindParam(":area", $datos["area"], PDO::PARAM_STR);
+		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":boletin", $datos["boletin"], PDO::PARAM_INT);
+		
 
+		
 		if($stmt->execute()){
 
 			return "ok";
 
 		}else{
 
-			print_r(Conexion::conectar()->errorInfo());
-
+			return "error";
+		
 		}
 
 		$stmt->close();
-
-		$stmt = null;	
+		$stmt = null;
 
 	}
+
 
 	/*=============================================
 	Seleccionar Registros

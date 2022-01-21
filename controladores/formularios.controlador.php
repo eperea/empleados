@@ -10,15 +10,18 @@ class ControladorFormularios{
 
 		if(isset($_POST["nombre"])){
 
+			return "ok";
+			
+
 			$tabla = "empleado";
 
 			$datos = array("nombre" => $_POST["nombre"],
 				           "email" => $_POST["email"],
-				           "email" => $_POST["sexo"],
-				           "email" => $_POST["area"],
-				           "email" => $_POST["descripcion"],
-				           "email" => $_POST["boletin"],
-				           "email" => $_POST["roles"]);
+				           "sexo" => $_POST["sexo"],
+				           "area" => $_POST["area"],
+				           "descripcion" => $_POST["descripcion"],
+				           "boletin" => $_POST["boletin"]
+				         );
 
 			$respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
 
@@ -57,58 +60,7 @@ class ControladorFormularios{
 	}
 
 
-	/*=============================================
-	Ingreso
-	=============================================*/
-
-	public function ctrIngreso(){
-
-		if(isset($_POST["ingresoEmail"])){
-
-			$tabla = "registros";
-			$item = "email";
-			$valor = $_POST["ingresoEmail"];
-
-			$respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla, $item, $valor);
-
-			if($respuesta["email"] == $_POST["ingresoEmail"] && $respuesta["password"] == $_POST["ingresoPassword"]){
-
-				$_SESSION["validarIngreso"] = "ok";
-
-				echo '<script>
-
-					if ( window.history.replaceState ) {
-
-						window.history.replaceState( null, null, window.location.href );
-
-					}
-
-					window.location = "index.php?pagina=inicio";
-
-				</script>';
-
-			}else{
-
-
-				echo '<script>
-
-					if ( window.history.replaceState ) {
-
-						window.history.replaceState( null, null, window.location.href );
-
-					}
-
-				</script>';
-
-				echo '<div class="alert alert-danger">Error al ingresar al sistema, el email o la contraseña no coinciden</div>';
-			}
-			
-			
-
-		}
-
-	}
-
+	
 	/*=============================================
 	Actualizar Registro
 	=============================================*/
