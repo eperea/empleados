@@ -55,44 +55,44 @@
 
 				<?php if (isset($_GET["pagina"])): ?>
 
-				<?php if ($_GET["pagina"] == "formulario"): ?>
+					<?php if ($_GET["pagina"] == "formulario"): ?>
+
+						<li class="nav-item">
+							<a class="nav-link active" href="index.php?pagina=formulario">Formulario</a>
+						</li>
+
+					<?php else: ?>
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?pagina=formulario">Formulario</a>
+						</li>
+
+					<?php endif ?>
+
+					<?php if ($_GET["pagina"] == "inicio"): ?>
+
+						<li class="nav-item">
+							<a class="nav-link active" href="index.php?pagina=inicio">Lista Empleados</a>
+						</li>
+
+					<?php else: ?>
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.php?pagina=inicio">Lista Empleados</a>
+						</li>
+
+					<?php endif ?>
+
+
+				<?php else: ?>
 
 					<li class="nav-item">
 						<a class="nav-link active" href="index.php?pagina=formulario">Formulario</a>
 					</li>
 
-				<?php else: ?>
-
 					<li class="nav-item">
-						<a class="nav-link" href="index.php?pagina=formulario">Formulario</a>
+						<a class="nav-link" href="index.php?pagina=inicio">Lista</a>
 					</li>
-					
-				<?php endif ?>
-
-				<?php if ($_GET["pagina"] == "inicio"): ?>
-
-					<li class="nav-item">
-						<a class="nav-link active" href="index.php?pagina=inicio">Lista Empleados</a>
-					</li>
-
-				<?php else: ?>
-
-					<li class="nav-item">
-						<a class="nav-link" href="index.php?pagina=inicio">Lista Empleados</a>
-					</li>
-					
-				<?php endif ?>
-
-				
-			<?php else: ?>
-
-				<li class="nav-item">
-					<a class="nav-link" href="index.php?pagina=formulario">Formulario</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link active" href="index.php?pagina=inicio">Lista</a>
-				</li>
 
 				<?php endif ?>
 
@@ -117,30 +117,33 @@
 			if(isset($_GET["pagina"])){
 
 				if($_GET["pagina"] == "formulario" ||
-			       $_GET["pagina"] == "inicio"){
+					$_GET["pagina"] == "inicio"){
 
 
-						include "paginas/".$_GET["pagina"].".php";
-}
-
-
-
+					include "paginas/".$_GET["pagina"].".php";
 			}else{
 
-				include "paginas/formulario.php";
-
+				include "paginas/error404.php";
 			}
 
-				
 
 
-			?>
+		}else{
+
+			include "paginas/formulario.php";
+
+		}
 
 
-			
-		</div>
+
+
+		?>
+
+
 
 	</div>
+
+</div>
 
 </body>
 </html>
