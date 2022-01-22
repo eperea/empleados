@@ -82,6 +82,7 @@
 
 			<label class="form-check-label">
 				<input class="form-check-input" type="checkbox" name="boletin" value="1" > Deseo recibir boletin informativo
+				<input class="form-check-input" type="hidden" name="boletin" value="0" >
 			</label>
 		</div>
 

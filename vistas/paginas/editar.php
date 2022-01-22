@@ -117,6 +117,7 @@ $bolet = in_array('M', $boletin);
 				<input class="form-check-input" type="checkbox" name="actualizarboletin" value="1" <?php if(in_array('1', $boletin)){
 				echo 'checked="checked"';
 			} ?>> Deseo recibir boletin informativo
+			<input class="form-check-input" type="hidden" name="actualizarboletin" value="0" >
 			</label>
 		</div>
 
