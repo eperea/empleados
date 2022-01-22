@@ -56,7 +56,7 @@ class ModeloFormularios{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT empleado.id, empleado.nombre as nombre,  email , sexo , areas.nombre as area_id,  boletin,  descripcion  FROM $tabla   JOIN areas ON empleado.area_id = areas.id");
 
 			$stmt -> execute();
 
