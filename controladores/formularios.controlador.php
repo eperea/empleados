@@ -6,22 +6,19 @@ class ControladorFormularios{
 	Registro
 	=============================================*/
 
+
 	static public function ctrRegistro(){
 
 		if(isset($_POST["nombre"])){
-
-			return "ok";
-			
 
 			$tabla = "empleado";
 
 			$datos = array("nombre" => $_POST["nombre"],
 				           "email" => $_POST["email"],
 				           "sexo" => $_POST["sexo"],
-				           "area" => $_POST["area"],
+				           "area_id" => $_POST["area"],
 				           "descripcion" => $_POST["descripcion"],
-				           "boletin" => $_POST["boletin"]
-				         );
+				           "boletin" => $_POST["boletin"]);
 
 			$respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
 

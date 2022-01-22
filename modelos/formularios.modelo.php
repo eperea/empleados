@@ -11,30 +11,29 @@ class ModeloFormularios{
 	static public function mdlRegistro($tabla, $datos){
 
 		
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre, email, sexo, area_id, boletin, descripcion) VALUES (:nombre, :email, :sexo, :area_id, :boletin, :descripcion)");
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (nombre, email, sexo, area, descripcion, boletin) VALUES (:nombre, :email, :sexo, :area, :descripcion, :boletin)");
-
+		
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
 		$stmt->bindParam(":sexo", $datos["sexo"], PDO::PARAM_STR);
-		$stmt->bindParam(":area", $datos["area"], PDO::PARAM_STR);
-		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":area_id", $datos["area_id"], PDO::PARAM_INT);
 		$stmt->bindParam(":boletin", $datos["boletin"], PDO::PARAM_INT);
-		
+		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
 
-		
 		if($stmt->execute()){
 
 			return "ok";
 
 		}else{
 
-			return "error";
-		
+			print_r(Conexion::conectar()->errorInfo());
+
 		}
 
 		$stmt->close();
-		$stmt = null;
+
+		$stmt = null;	
 
 	}
 
