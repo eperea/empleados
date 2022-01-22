@@ -14,11 +14,11 @@ class ControladorFormularios{
 			$tabla = "empleado";
 
 			$datos = array("nombre" => $_POST["nombre"],
-				           "email" => $_POST["email"],
-				           "sexo" => $_POST["sexo"],
-				           "area_id" => $_POST["area"],
-				           "descripcion" => $_POST["descripcion"],
-				           "boletin" => $_POST["boletin"]);
+				"email" => $_POST["email"],
+				"sexo" => $_POST["sexo"],
+				"area_id" => $_POST["area"],
+				"descripcion" => $_POST["descripcion"],
+				"boletin" => $_POST["boletin"]);
 
 			$respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
 
@@ -59,27 +59,25 @@ class ControladorFormularios{
 
 	
 	/*=============================================
-	Actualizar Registro
+	Actualizar Registro empleado
 	=============================================*/
 	static public function ctrActualizarRegistro(){
 
-		if(isset($_POST["actualizarNombre"])){
+		if(isset($_POST["actualizarnombre"])){
 
-			if($_POST["actualizarPassword"] != ""){			
 
-				$password = $_POST["actualizarPassword"];
+			echo $_POST["actualizarid"]. $_POST["actualizarnombre"]. $_POST["actualizaremail"]. $_POST["actualizarsexo"]. $_POST["actualizararea"] .  $_POST["actualizardescripcion"] . $_POST["actualizarboletin"];
 
-			}else{
+			
+			$tabla = "empleado";
 
-				$password = $_POST["passwordActual"];
-			}
-
-			$tabla = "registros";
-
-			$datos = array("id" => $_POST["idUsuario"],
-							"nombre" => $_POST["actualizarNombre"],
-				           "email" => $_POST["actualizarEmail"],
-				           "password" => $password);
+			$datos = array("id" => $_POST["actualizarid"],
+							"nombre" => $_POST["actualizarnombre"],
+							"email" => $_POST["actualizaremail"],
+							"sexo" => $_POST["actualizarsexo"],
+							"area_id" => $_POST["actualizararea"],
+							"descripcion" => $_POST["actualizardescripcion"],
+							"boletin" => $_POST["actualizarboletin"]);
 
 			$respuesta = ModeloFormularios::mdlActualizarRegistro($tabla, $datos);
 
@@ -106,13 +104,13 @@ class ControladorFormularios{
 
 				echo '<script>
 
-					if ( window.history.replaceState ) {
+				if ( window.history.replaceState ) {
 
-						window.history.replaceState( null, null, window.location.href );
+					window.history.replaceState( null, null, window.location.href );
 
-					}
+				}
 
-					window.location = "index.php?pagina=inicio";
+				window.location = "index.php?pagina=inicio";
 
 				</script>';
 

@@ -44,7 +44,7 @@ class ModeloFormularios{
 
 	static public function mdlSeleccionarRegistros($tabla, $item, $valor){
 
-	if($item != null){
+		if($item != null){
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
@@ -76,7 +76,7 @@ class ModeloFormularios{
 
 	static public function mdlSeleccionarAreas($tabla, $item, $valor){
 
-	if($item != null){
+		if($item != null){
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
@@ -107,12 +107,15 @@ class ModeloFormularios{
 	=============================================*/
 
 	static public function mdlActualizarRegistro($tabla, $datos){
-	
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre, email=:email, password=:password WHERE id = :id");
+		
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre=:nombre, email=:email, sexo=:sexo, area_id=:area_id, boletin=:boletin, descripcion=:descripcion WHERE id = :id");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
-		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
+		$stmt->bindParam(":sexo", $datos["sexo"], PDO::PARAM_STR);
+		$stmt->bindParam(":area_id", $datos["area_id"], PDO::PARAM_INT);
+		$stmt->bindParam(":boletin", $datos["boletin"], PDO::PARAM_INT);
+		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
 		$stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
@@ -135,7 +138,7 @@ class ModeloFormularios{
 	Eliminar Registro
 	=============================================*/
 	static public function mdlEliminarRegistro($tabla, $valor){
-	
+		
 		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
 
 		$stmt->bindParam(":id", $valor, PDO::PARAM_STR);

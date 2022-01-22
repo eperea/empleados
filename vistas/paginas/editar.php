@@ -69,7 +69,7 @@ $bolet = in_array('M', $boletin);
 		
 		<select class="form-control" name="actualizararea"  >
 
-			<option value=""><?php echo $_GET["nombre"]; ?></option>
+			<option ><?php echo $_GET["nombre"]; ?></option>
 
 			<?php
 
@@ -91,6 +91,8 @@ $bolet = in_array('M', $boletin);
 		</select>   
 
 		<br>                 
+
+
 
 		<!-- ENTRADA PARA EL Descripción -->
 
@@ -117,7 +119,9 @@ $bolet = in_array('M', $boletin);
 				<input class="form-check-input" type="checkbox" name="actualizarboletin" value="1" <?php if(in_array('1', $boletin)){
 				echo 'checked="checked"';
 			} ?>> Deseo recibir boletin informativo
-			<input class="form-check-input" type="hidden" name="actualizarboletin" value="0" >
+
+		
+
 			</label>
 		</div>
 
@@ -145,8 +149,41 @@ $bolet = in_array('M', $boletin);
 	<?php
 
 
+		$actualizar = ControladorFormularios::ctrActualizarRegistro();
 
-	?>
+		if($actualizar == "ok"){
+
+			echo '<script>
+
+			if ( window.history.replaceState ) {
+
+				window.history.replaceState( null, null, window.location.href );
+
+			}
+
+			</script>';
+
+			echo '<div class="alert alert-success">El empleado ha sido actualizado</div>
+
+			<script>
+
+				setTimeout(function(){
+				
+					window.location = "index.php?pagina=inicio";
+
+				},3000);
+
+			</script>
+			
+
+			';
+
+		}
+
+		?>
+
+
+    <input class="form-check-input" type="hidden" name="actualizarid" value=" <?php echo  $empleado["id"]; ?>">
 
 	<button type="submit" class="btn btn-primary">Actualizar</button>
 
