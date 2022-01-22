@@ -66,12 +66,12 @@ class ControladorFormularios{
 		if(isset($_POST["actualizarnombre"])){
 
 
-			echo $_POST["actualizarid"]. $_POST["actualizarnombre"]. $_POST["actualizaremail"]. $_POST["actualizarsexo"]. $_POST["actualizararea"] .  $_POST["actualizardescripcion"] . $_POST["actualizarboletin"];
+			/*echo $_POST["actualizarid"]. $_POST["actualizarnombre"]. $_POST["actualizaremail"]. $_POST["actualizarsexo"]. $_POST["actualizararea"] .  $_POST["actualizardescripcion"] . $_POST["actualizarboletin"];*/
 
 			
 			$tabla = "empleado";
 
-			$datos = array("id" => $_POST["actualizarid"],
+			$datos = array( "id" => $_POST["actualizarid"],
 							"nombre" => $_POST["actualizarnombre"],
 							"email" => $_POST["actualizaremail"],
 							"sexo" => $_POST["actualizarsexo"],

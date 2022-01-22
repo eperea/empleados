@@ -183,7 +183,7 @@ $bolet = in_array('M', $boletin);
 		?>
 
 
-    <input class="form-check-input" type="hidden" name="actualizarid" value=" <?php echo  $empleado["id"]; ?>">
+    <input class="form-check-input" type="hidden" name="actualizarid" value=" <?php echo $_GET['id']; ?>">
 
 	<button type="submit" class="btn btn-primary">Actualizar</button>
 

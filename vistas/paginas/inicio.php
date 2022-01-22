@@ -7,8 +7,8 @@ $empleados = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 ?>
 
 
-
-<table class="table table-striped">
+<div class="table-responsive">
+<table class="table table-bordered table-striped">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -72,3 +72,4 @@ $empleados = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 	
 	</tbody>
 </table>
+</div>
