@@ -120,7 +120,7 @@ $bolet = in_array('M', $boletin);
 				echo 'checked="checked"';
 			} ?>> Deseo recibir boletin informativo
 
-		
+			
 
 			</label>
 		</div>
@@ -183,7 +183,7 @@ $bolet = in_array('M', $boletin);
 		?>
 
 
-    <input class="form-check-input" type="hidden" name="actualizarid" value=" <?php echo $_GET['id']; ?>">
+    <input class="form-check-input" type="hidden" name="actualizarid" value=" <?php echo  $empleado["id"]; ?>">
 
 	<button type="submit" class="btn btn-primary">Actualizar</button>
 

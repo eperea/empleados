@@ -41,6 +41,8 @@ $empleados = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 			<div class="btn-group">
 
 				<div class="px-1">
+
+					
 				
 				<a href="index.php?pagina=editar&id=<?php echo $value["id"]; ?>&nombre=<?php echo $value["area_id"]; ?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
 
