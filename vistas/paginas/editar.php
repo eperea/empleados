@@ -19,7 +19,7 @@ $sexo = in_array('M', $gender);
 // VALIDAMOS LA INFO QUE TRAE EL CAMPO BOLETIN
 
 $boletin = explode(',', $empleado["boletin"]);
-$bolet = in_array('M', $boletin);
+$bolet = in_array('0', $boletin);
 
 ?>
 
@@ -118,7 +118,9 @@ $bolet = in_array('M', $boletin);
 			<label class="form-check-label">
 				<input class="form-check-input" type="checkbox" name="actualizarboletin" value="1" <?php if(in_array('1', $boletin)){
 				echo 'checked="checked"';
+
 			} ?>> Deseo recibir boletin informativo
+			<input class="form-check-input" type="hidden" name="actualizarboletin" value="<?php echo  $bolet; ?>" >
 
 			
 

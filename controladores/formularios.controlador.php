@@ -114,6 +114,21 @@ class ControladorFormularios{
 
 				</script>';
 
+				echo '<div class="alert alert-success">El empleado ha sido actualizado</div>
+
+			<script>
+
+				setTimeout(function(){
+				
+					window.location = "index.php?pagina=inicio";
+
+				},3000);
+
+			</script>
+			
+
+			';
+
 			}
 
 		}
