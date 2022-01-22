@@ -6,20 +6,20 @@
 
 
 		<div class="mb-3 mt-3">
-			<label for="nombre" class="form-label">Nombre completo *</label>
+			
 			<input type="text" class="form-control" id="nombre" placeholder="Nombre completo del empleado" name="nombre" required>
 		</div>
 
 		<!-- ENTRADA PARA EL CORREO-->
 
 		<div class="mb-3 mt-3">
-			<label for="email" class="form-label">Correo electrónico *</label>
+			
 			<input type="email" class="form-control" id="email" placeholder="Correo electrónico" name="email" required>
 		</div>
 
 		<!-- ENTRADA PARA SEXO-->
 
-		<label>Sexo *</label>
+		
 
 		<div class="form-check">
 
@@ -32,9 +32,11 @@
 			<label class="form-check-label" for="radio2"></label>
 		</div>	
 
+		<br>
+
 		<!-- ENTRADA PARA EL AREA-->
 
-		<label>Area *</label>
+		
 
 		<select class="form-control" name="area"  >
 
@@ -57,13 +59,15 @@
 
 			?>
 
-		</select>                    
+		</select>   
+
+		<br>                 
 
 		<!-- ENTRADA PARA EL Descripción -->
 
 		<div class="form-group">
 
-			<label>Descripción *</label>
+			
 
 			<div class="input-group">
 
@@ -130,7 +134,7 @@
 
 	?>
 
-	<button type="submit" class="btn btn-primary">Enviar</button>
+	<button type="submit" class="btn btn-primary">Actualizar</button>
 
 </form>
 

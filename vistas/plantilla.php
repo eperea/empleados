@@ -127,7 +127,8 @@
 			if(isset($_GET["pagina"])){
 
 				if($_GET["pagina"] == "formulario" ||
-					$_GET["pagina"] == "inicio"){
+				   $_GET["pagina"] == "editar" ||
+				   $_GET["pagina"] == "inicio"){
 
 
 					include "paginas/".$_GET["pagina"].".php";
