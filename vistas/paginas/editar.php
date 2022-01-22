@@ -1,3 +1,29 @@
+<?php
+
+if(isset($_GET["id"])){
+
+	$item = "id";
+	$valor = $_GET["id"];
+
+	$empleado = ControladorFormularios::ctrSeleccionarRegistros($item, $valor);
+
+	//echo '<pre>'; print_r($empleado); echo '</pre>';
+
+}
+// VALIDAMOS LA INFO QUE TRAE EL CAMPO SEXO
+
+$gender = explode(',', $empleado["sexo"]);
+$sexo = in_array('M', $gender);
+
+
+// VALIDAMOS LA INFO QUE TRAE EL CAMPO BOLETIN
+
+$boletin = explode(',', $empleado["boletin"]);
+$bolet = in_array('M', $boletin);
+
+?>
+
+
 <div class="d-flex justify-content-center" >
 
 	<form class="py-5 bg-light" method="post" style="width:80%;">
@@ -7,14 +33,14 @@
 
 		<div class="mb-3 mt-3">
 			
-			<input type="text" class="form-control" id="nombre" placeholder="Nombre completo del empleado" name="nombre" required>
+			<input type="text" class="form-control" value="<?php echo $empleado["nombre"]; ?>" id="nombre" placeholder="Nombre completo del empleado" name="actualizarnombre" required>
 		</div>
 
 		<!-- ENTRADA PARA EL CORREO-->
 
 		<div class="mb-3 mt-3">
 			
-			<input type="email" class="form-control" id="email" placeholder="Correo electrónico" name="email" required>
+			<input type="email" class="form-control" value="<?php echo $empleado["email"]; ?>"  id="email" placeholder="Correo electrónico" name="actualizaremail" required>
 		</div>
 
 		<!-- ENTRADA PARA SEXO-->
@@ -23,12 +49,16 @@
 
 		<div class="form-check">
 
-			<input type="radio" class="form-check-input" id="radio1" name="sexo" value="M" required>Masculino
+			<input type="radio" class="form-check-input" id="radio1" name="actualizarsexo" value="M" <?php if(in_array('M', $gender)){
+				echo 'checked="checked"';
+			} ?>  required>Masculino
 			<label class="form-check-label" for="radio1"></label>
 		</div>
 
 		<div class="form-check">
-			<input type="radio" class="form-check-input" id="radio2" name="sexo" value="F">Femenino
+			<input type="radio" class="form-check-input" id="radio2" name="actualizarsexo" value="F" <?php if(in_array('F', $gender)){
+				echo 'checked="checked"';
+			} ?>  required>Femenino
 			<label class="form-check-label" for="radio2"></label>
 		</div>	
 
@@ -37,10 +67,9 @@
 		<!-- ENTRADA PARA EL AREA-->
 
 		
+		<select class="form-control" name="actualizararea"  >
 
-		<select class="form-control" name="area"  >
-
-			<option value="">-- Seleccione --</option>
+			<option value=""><?php echo $_GET["nombre"]; ?></option>
 
 			<?php
 
@@ -72,7 +101,7 @@
 			<div class="input-group">
 
 
-				<textarea class="form-control" name="descripcion" rows="2" placeholder="Descripción de la experiencia del empleado" required></textarea>
+				<textarea class="form-control" name="actualizardescripcion" rows="2" placeholder="Descripción de la experiencia del empleado" required><?php echo $empleado["descripcion"]; ?></textarea>
 
 
 			</div>
@@ -85,7 +114,9 @@
 		<div class="form-check mb-3">
 
 			<label class="form-check-label">
-				<input class="form-check-input" type="checkbox" name="boletin" value="1" > Deseo recibir boletin informativo
+				<input class="form-check-input" type="checkbox" name="actualizarboletin" value="1" <?php if(in_array('1', $boletin)){
+				echo 'checked="checked"';
+			} ?>> Deseo recibir boletin informativo
 			</label>
 		</div>
 
@@ -106,31 +137,13 @@
 			<input type="checkbox" class="form-check-input">
 			<label class="form-check-label">Option 3</label> 
 		</div>
--->
-		<br>
+	-->
+	<br>
 
 
-		<?php
-
-		$formulario = ControladorFormularios::ctrRegistro();
+	<?php
 
 
-
-		if($formulario == "ok"){
-
-			echo '<script>
-
-				if ( window.history.replaceState ) {
-
-					window.history.replaceState( null, null, window.location.href );
-
-				}
-
-			</script>';
-
-			echo '<div class="alert alert-success">El usuario ha sido registrado</div>';
-
-		}
 
 	?>
 

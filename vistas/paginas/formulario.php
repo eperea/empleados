@@ -124,7 +124,7 @@
 
 			</script>';
 
-			echo '<div class="alert alert-success">El usuario ha sido registrado</div>';
+			echo '<div class="alert alert-success">El empleado ha sido registrado</div>';
 
 		}
 

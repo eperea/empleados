@@ -42,7 +42,7 @@ $empleados = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 
 				<div class="px-1">
 				
-				<a href="index.php?pagina=editar&id=<?php echo $value["id"]; ?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+				<a href="index.php?pagina=editar&id=<?php echo $value["id"]; ?>&nombre=<?php echo $value["area_id"]; ?>" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
 
 				</div>
 
@@ -55,6 +55,7 @@ $empleados = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 					<?php
 
 						$eliminar = new ControladorFormularios();
+
 						$eliminar -> ctrEliminarRegistro();
 
 					?>
